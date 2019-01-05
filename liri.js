@@ -10,27 +10,31 @@ for(let i = 4; i < process.argv.length; i++) {
     query += "+" + process.argv[i];
 }
 
-if(command === "spotify-this-song") {
-    getSpotifySongData(query);
-}
-else if(command === "concert-this") {
-    console.log("concert-this coming soon!");
-}
-else if(command === "movie-this") {
-    console.log("movie-this coming soon!");
-}
-else if(command === "do-what-it-says") {
-    console.log("do-what-it-says coming soon!");
-}
-else {
-    console.log("Valid commands:\nconcert-this\nspotify-this-song\nmovie-this\ndo-what-it-says")
-}
+runCommand(command, query);
 
 // COMMANDS
 // concert-this
 // spotify-this-song DONE
 // movie-this
 // do-what-it-says
+
+function runCommand(command, query) {
+    if(command === "spotify-this-song") {
+        getSpotifySongData(query);
+    }
+    else if(command === "concert-this") {
+        console.log("concert-this coming soon!");
+    }
+    else if(command === "movie-this") {
+        console.log("movie-this coming soon!");
+    }
+    else if(command === "do-what-it-says") {
+        console.log("do-what-it-says coming soon!");
+    }
+    else {
+        console.log("Valid commands:\nconcert-this\nspotify-this-song\nmovie-this\ndo-what-it-says")
+    }
+}
 
 // TODO If no song is provided then your program will default to "The Sign" by Ace of Base.
 function getSpotifySongData(songName) {
