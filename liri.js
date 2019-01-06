@@ -77,31 +77,42 @@ function logSpotifySongData(songName) {
     });
 }
 
-// TODO handle case where no concerts are returned ADD CATCH
 // Use axios to log concert data for a band
 function logBandsInTownData(query) {
     axios.get("https://rest.bandsintown.com/artists/" + query + "/events?app_id=" + bandsInTownID).then(response => {
-        response.data.forEach(concert => {
-            console.log("------------------------------------------------------------------------------");
-            console.log(concert.venue.name);
-            console.log(concert.venue.city + ", " + concert.venue.region + " " + concert.venue.country);
-            console.log(moment(concert.datetime.substr(0,10), "YYYY-MM-DD").format("MM/DD/YYYY"));
-        });
+        if(!Array.isArray(response.data) || response.data.length < 1) {
+            console.log("Concerts not found.");
+        }
+        else {
+            response.data.forEach(concert => {
+                console.log("------------------------------------------------------------------------------");
+                console.log(concert.venue.name);
+                console.log(concert.venue.city + ", " + concert.venue.region + " " + concert.venue.country);
+                console.log(moment(concert.datetime.substr(0,10), "YYYY-MM-DD").format("MM/DD/YYYY"));
+            });
+        }
+    }).catch(err => {
+        console.log(err);
     });
 }
 
-// TODO handle case where no movie is returned ADD CATCH
 // Use axios to log movie data
 function logOMDBData(query) {
     axios.get("http://www.omdbapi.com/?t=" + query + "&plot=short&apikey=" + omdbID).then(response => {
-        console.log("Title: " + response.data.Title);
-        console.log("Released: " + response.data.Year);
-        console.log("IMDB rating: " + response.data.imdbRating);
-        console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value); // TODO Dont assume place in array
-        console.log("Language: " + response.data.Language);
-        console.log("Plot: " + response.data.Plot);
-        console.log("Actors: " + response.data.Actors);
-
+        if(response.data.Response === 'False') {
+            console.log("Movie not found.");
+        }
+        else {
+            console.log("Title: " + response.data.Title);
+            console.log("Released: " + response.data.Year);
+            console.log("IMDB rating: " + response.data.imdbRating);
+            console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value); // TODO Dont assume place in array
+            console.log("Language: " + response.data.Language);
+            console.log("Plot: " + response.data.Plot);
+            console.log("Actors: " + response.data.Actors);
+        }
+    }).catch(err => {
+        console.log(err);
     });
 }
 
