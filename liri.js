@@ -1,14 +1,15 @@
+// Include modules
 require("dotenv").config();
 const Spotify = require("node-spotify-api");
 const axios = require("axios");
 const moment = require("moment");
 const fs = require("fs");
 
+// Get API keys
 const keys = require("./keys.js");
 const spotify = new Spotify(keys.spotify);
 const bandsInTownID = keys.bandsInTown.id;
 const omdbID = keys.omdb.id;
-
 
 // Parse argument data
 const command = process.argv[2];
@@ -17,14 +18,10 @@ for(let i = 4; i < process.argv.length; i++) {
     query += "+" + process.argv[i];
 }
 
+// Use arguments to run a command
 runCommand(command, query);
 
-// COMMANDS
-// concert-this DONE
-// spotify-this-song DONE
-// movie-this DONE
-// do-what-it-says DONE
-
+// Determine appropriate command and run
 function runCommand(command, query) {
     if(command === "spotify-this-song") {
         if(query) {
@@ -58,6 +55,7 @@ function runCommand(command, query) {
     }
 }
 
+// Use node-spotify-api to log song data
 function logSpotifySongData(songName) {
     spotify.search({type: 'track', query: songName, limit: 1}).then(response => {
         if(response.tracks.items.length < 1) {
@@ -79,7 +77,8 @@ function logSpotifySongData(songName) {
     });
 }
 
-// TODO handle case where no concerts are returned
+// TODO handle case where no concerts are returned ADD CATCH
+// Use axios to log concert data for a band
 function logBandsInTownData(query) {
     axios.get("https://rest.bandsintown.com/artists/" + query + "/events?app_id=" + bandsInTownID).then(response => {
         response.data.forEach(concert => {
@@ -91,7 +90,8 @@ function logBandsInTownData(query) {
     });
 }
 
-// TODO handle case where no movie is returned
+// TODO handle case where no movie is returned ADD CATCH
+// Use axios to log movie data
 function logOMDBData(query) {
     axios.get("http://www.omdbapi.com/?t=" + query + "&plot=short&apikey=" + omdbID).then(response => {
         console.log("Title: " + response.data.Title);
@@ -105,13 +105,14 @@ function logOMDBData(query) {
     });
 }
 
+// Run command located in random.txt
 function doWhatItSays() {
     fs.readFile("random.txt", "utf8", (error, data) => {
         if(error) throw error;
         const dataArr = data.split(",");
         const command = dataArr[0];
         const query = dataArr[1];
-        if(command !== "do-what-it-says") {
+        if(command !== "do-what-it-says") { // We don't ever want to run this command because it will loop forever
             runCommand(command, query);
         }
     });
