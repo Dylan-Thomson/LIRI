@@ -2,6 +2,7 @@ require("dotenv").config();
 const Spotify = require("node-spotify-api");
 const axios = require("axios");
 const moment = require("moment");
+const fs = require("fs");
 
 const keys = require("./keys.js");
 const spotify = new Spotify(keys.spotify);
@@ -21,8 +22,8 @@ runCommand(command, query);
 // COMMANDS
 // concert-this DONE
 // spotify-this-song DONE
-// movie-this
-// do-what-it-says
+// movie-this DONE
+// do-what-it-says DONE
 
 function runCommand(command, query) {
     if(command === "spotify-this-song") {
@@ -50,7 +51,7 @@ function runCommand(command, query) {
         }
     }
     else if(command === "do-what-it-says") {
-        console.log("do-what-it-says coming soon!");
+        doWhatItSays();
     }
     else {
         console.log("Valid commands:\nconcert-this\nspotify-this-song\nmovie-this\ndo-what-it-says")
@@ -82,10 +83,10 @@ function logSpotifySongData(songName) {
 function logBandsInTownData(query) {
     axios.get("https://rest.bandsintown.com/artists/" + query + "/events?app_id=" + bandsInTownID).then(response => {
         response.data.forEach(concert => {
+            console.log("------------------------------------------------------------------------------");
             console.log(concert.venue.name);
             console.log(concert.venue.city + ", " + concert.venue.region + " " + concert.venue.country);
             console.log(moment(concert.datetime.substr(0,10), "YYYY-MM-DD").format("MM/DD/YYYY"));
-            console.log("------------------------------------------------------------------------------");
         });
     });
 }
@@ -100,6 +101,18 @@ function logOMDBData(query) {
         console.log("Language: " + response.data.Language);
         console.log("Plot: " + response.data.Plot);
         console.log("Actors: " + response.data.Actors);
-        // console.log(response.data);
+
+    });
+}
+
+function doWhatItSays() {
+    fs.readFile("random.txt", "utf8", (error, data) => {
+        if(error) throw error;
+        const dataArr = data.split(",");
+        const command = dataArr[0];
+        const query = dataArr[1];
+        if(command !== "do-what-it-says") {
+            runCommand(command, query);
+        }
     });
 }
