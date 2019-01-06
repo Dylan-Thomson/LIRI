@@ -1,7 +1,12 @@
 require("dotenv").config();
 const Spotify = require("node-spotify-api");
+const axios = require("axios");
+const moment = require("moment");
+
 const keys = require("./keys.js");
 const spotify = new Spotify(keys.spotify);
+const bandsInTownID = keys.bandsInTown.id;
+
 
 // Parse argument data
 const command = process.argv[2];
@@ -13,7 +18,7 @@ for(let i = 4; i < process.argv.length; i++) {
 runCommand(command, query);
 
 // COMMANDS
-// concert-this
+// concert-this DONE
 // spotify-this-song DONE
 // movie-this
 // do-what-it-says
@@ -21,14 +26,19 @@ runCommand(command, query);
 function runCommand(command, query) {
     if(command === "spotify-this-song") {
         if(query) {
-            getSpotifySongData(query);
+            logSpotifySongData(query);
         }
         else {
-            console.log("Please enter a song name.\nspotify-this-song song name");
+            console.log("Please enter a song name.\nExample: spotify-this-song chop suey");
         }
     }
     else if(command === "concert-this") {
-        console.log("concert-this coming soon!");
+        if(query) {
+            logBandsInTownData(query);
+        }
+        else {
+            console.log("Please enter a band name.\nExample: concert-this system of a down");
+        }
     }
     else if(command === "movie-this") {
         console.log("movie-this coming soon!");
@@ -41,11 +51,11 @@ function runCommand(command, query) {
     }
 }
 
-function getSpotifySongData(songName) {
+function logSpotifySongData(songName) {
     spotify.search({type: 'track', query: songName, limit: 1}).then(response => {
         if(response.tracks.items.length < 1) {
             console.log("Song not found. Here's a default song.");
-            getSpotifySongData("The Sign Ace of Base");
+            logSpotifySongData("The Sign Ace of Base");
         }
         else {
             const artistName = response.tracks.items[0].artists[0].name;
@@ -59,5 +69,16 @@ function getSpotifySongData(songName) {
         }
     }).catch(err => {
         console.log(err);
+    });
+}
+
+function logBandsInTownData(query) {
+    axios.get("https://rest.bandsintown.com/artists/" + query + "/events?app_id=" + bandsInTownID).then(response => {
+        response.data.forEach(concert => {
+            console.log(concert.venue.name);
+            console.log(concert.venue.city + ", " + concert.venue.region + " " + concert.venue.country);
+            console.log(moment(concert.datetime.substr(0,10), "YYYY-MM-DD").format("MM/DD/YYYY"));
+            console.log("------------------------------------------------------------------------------");
+        });
     });
 }
