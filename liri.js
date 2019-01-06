@@ -6,6 +6,7 @@ const moment = require("moment");
 const keys = require("./keys.js");
 const spotify = new Spotify(keys.spotify);
 const bandsInTownID = keys.bandsInTown.id;
+const omdbID = keys.omdb.id;
 
 
 // Parse argument data
@@ -41,7 +42,12 @@ function runCommand(command, query) {
         }
     }
     else if(command === "movie-this") {
-        console.log("movie-this coming soon!");
+        if(query) {
+            logOMDBData(query);
+        }
+        else {
+            console.log("Please enter a movie name.\nExample: movie-this the shawshank redemption");
+        }
     }
     else if(command === "do-what-it-says") {
         console.log("do-what-it-says coming soon!");
@@ -72,6 +78,7 @@ function logSpotifySongData(songName) {
     });
 }
 
+// TODO handle case where no concerts are returned
 function logBandsInTownData(query) {
     axios.get("https://rest.bandsintown.com/artists/" + query + "/events?app_id=" + bandsInTownID).then(response => {
         response.data.forEach(concert => {
@@ -80,5 +87,19 @@ function logBandsInTownData(query) {
             console.log(moment(concert.datetime.substr(0,10), "YYYY-MM-DD").format("MM/DD/YYYY"));
             console.log("------------------------------------------------------------------------------");
         });
+    });
+}
+
+// TODO handle case where no movie is returned
+function logOMDBData(query) {
+    axios.get("http://www.omdbapi.com/?t=" + query + "&plot=short&apikey=" + omdbID).then(response => {
+        console.log("Title: " + response.data.Title);
+        console.log("Released: " + response.data.Year);
+        console.log("IMDB rating: " + response.data.imdbRating);
+        console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value); // TODO Dont assume place in array
+        console.log("Language: " + response.data.Language);
+        console.log("Plot: " + response.data.Plot);
+        console.log("Actors: " + response.data.Actors);
+        // console.log(response.data);
     });
 }
