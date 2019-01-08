@@ -143,13 +143,17 @@ function doWhatItSays() {
         const command = dataArr[0];
         const query = dataArr[1];
         if(command !== "do-what-it-says") { // We don't ever want to run this command because it will loop forever
+            fs.appendFile("log.txt", "do-what-it-says\n", error => {
+                if(error) throw error;
+            });
             runCommand(command, query);
         }
     });
 }
 
+// Append command and its result to log.txt
 function logToFile(command, result) {
-    const output = command + "\n" + result + "\n\n============================================================================================\n\n";
+    const output = command + "\n" + result + "\n\n" + new Array(75).join("=") + "\n\n";
     fs.appendFile("log.txt", output, error => {
         if(error) throw error;
     });
