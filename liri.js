@@ -67,10 +67,15 @@ function logSpotifySongData(songName) {
             const songName = response.tracks.items[0].name;
             const link = response.tracks.items[0].external_urls.spotify;
             const albumName = response.tracks.items[0].album.name;
-            console.log("Artist: " + artistName +
-                        "\nSong Name: " + songName +
-                        "\nLink: " + link +
-                        "\nAlbum: " + albumName);
+
+            let output = "Artist: " + artistName;
+            output += "\nSong Name: " + songName;
+            output += "\nLink: " + link;
+            output += "\nAlbum: " + albumName;
+            
+            // Log to console and to log.txt                
+            console.log(output);
+            logToFile("spotify-this-song", output);
         }
     }).catch(err => {
         console.log(err);
@@ -84,12 +89,16 @@ function logBandsInTownData(query) {
             console.log("Concerts not found.");
         }
         else {
+            let output = "";
             response.data.forEach(concert => {
-                console.log("------------------------------------------------------------------------------");
-                console.log(concert.venue.name);
-                console.log(concert.venue.city + ", " + concert.venue.region + " " + concert.venue.country);
-                console.log(moment(concert.datetime.substr(0,10), "YYYY-MM-DD").format("MM/DD/YYYY"));
+                output += concert.venue.name;
+                output += "\n" + concert.venue.city + ", " + concert.venue.region + " " + concert.venue.country;
+                output += "\n" + moment(concert.datetime.substr(0,10), "YYYY-MM-DD").format("MM/DD/YYYY") + "\n\n";
             });
+            output = output.trim();
+            // Log to console and log.txt
+            console.log(output)
+            logToFile("concert-this", output)
         }
     }).catch(err => {
         console.log(err);
@@ -103,20 +112,23 @@ function logOMDBData(query) {
             console.log("Movie not found.");
         }
         else {
-            console.log(response.data.Ratings);
-            console.log("Title: " + response.data.Title);
-            console.log("Released: " + response.data.Year);
-            console.log("IMDB rating: " + response.data.imdbRating);
+            let output = "Title: " + response.data.Title;
+            output += "\nReleased: " + response.data.Year;
+            output += "\nIMDB rating: " + response.data.imdbRating;
             const rottenRating = response.data.Ratings.filter(rating => rating.Source.includes("Rotten Tomatoes"))[0];
             if(rottenRating) {
-                console.log("Rotten Tomatoes Rating: " + rottenRating.Value);
+                output += "\nRotten Tomatoes Rating: " + rottenRating.Value;
             }
             else {
-                console.log("Rotten Tomatoes Rating: N/A");
+                output += "\nRotten Tomatoes Rating: N/A";
             }
-            console.log("Language: " + response.data.Language);
-            console.log("Plot: " + response.data.Plot);
-            console.log("Actors: " + response.data.Actors);
+            output += "\nLanguage: " + response.data.Language;
+            output += "\nPlot: " + response.data.Plot;
+            output += "\nActors: " + response.data.Actors;
+            
+            // Log to console and log.txt
+            console.log(output);
+            logToFile("movie-this", output);
         }
     }).catch(err => {
         console.log(err);
@@ -133,5 +145,12 @@ function doWhatItSays() {
         if(command !== "do-what-it-says") { // We don't ever want to run this command because it will loop forever
             runCommand(command, query);
         }
+    });
+}
+
+function logToFile(command, result) {
+    const output = command + "\n" + result + "\n\n============================================================================================\n\n";
+    fs.appendFile("log.txt", output, error => {
+        if(error) throw error;
     });
 }
