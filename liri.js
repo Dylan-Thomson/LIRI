@@ -56,26 +56,26 @@ function runCommand(command, query) {
 }
 
 // Use node-spotify-api to log song data
-function logSpotifySongData(songName) {
-    spotify.search({type: 'track', query: songName, limit: 1}).then(response => {
+function logSpotifySongData(query) {
+    spotify.search({type: 'track', query: query, limit: 1}).then(response => {
         if(response.tracks.items.length < 1) {
             console.log("Song not found. Here's a default song.");
             logSpotifySongData("The Sign Ace of Base");
         }
         else {
             const artistName = response.tracks.items[0].artists[0].name;
-            const songName = response.tracks.items[0].name;
+            const query = response.tracks.items[0].name;
             const link = response.tracks.items[0].external_urls.spotify;
             const albumName = response.tracks.items[0].album.name;
 
             let output = "Artist: " + artistName;
-            output += "\nSong Name: " + songName;
+            output += "\nSong Name: " + query;
             output += "\nLink: " + link;
             output += "\nAlbum: " + albumName;
             
             // Log to console and to log.txt                
             console.log(output);
-            logToFile("spotify-this-song", output);
+            logToFile("spotify-this-song", query, output);
         }
     }).catch(err => {
         console.log(err);
@@ -98,7 +98,7 @@ function logBandsInTownData(query) {
             output = output.trim();
             // Log to console and log.txt
             console.log(output)
-            logToFile("concert-this", output)
+            logToFile("concert-this", query, output)
         }
     }).catch(err => {
         console.log(err);
@@ -128,7 +128,7 @@ function logOMDBData(query) {
             
             // Log to console and log.txt
             console.log(output);
-            logToFile("movie-this", output);
+            logToFile("movie-this", query, output);
         }
     }).catch(err => {
         console.log(err);
@@ -152,8 +152,8 @@ function doWhatItSays() {
 }
 
 // Append command and its result to log.txt
-function logToFile(command, result) {
-    const output = command + "\n" + result + "\n\n" + new Array(75).join("=") + "\n\n";
+function logToFile(command, searchTerm, result) {
+    const output = command + " " + searchTerm.replace("+", " ") + "\n" + result + "\n\n" + new Array(75).join("=") + "\n\n";
     fs.appendFile("log.txt", output, error => {
         if(error) throw error;
     });
