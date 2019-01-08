@@ -103,10 +103,17 @@ function logOMDBData(query) {
             console.log("Movie not found.");
         }
         else {
+            console.log(response.data.Ratings);
             console.log("Title: " + response.data.Title);
             console.log("Released: " + response.data.Year);
             console.log("IMDB rating: " + response.data.imdbRating);
-            console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value); // TODO Dont assume place in array
+            const rottenRating = response.data.Ratings.filter(rating => rating.Source.includes("Rotten Tomatoes"))[0];
+            if(rottenRating) {
+                console.log("Rotten Tomatoes Rating: " + rottenRating.Value);
+            }
+            else {
+                console.log("Rotten Tomatoes Rating: N/A");
+            }
             console.log("Language: " + response.data.Language);
             console.log("Plot: " + response.data.Plot);
             console.log("Actors: " + response.data.Actors);
