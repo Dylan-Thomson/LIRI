@@ -45,3 +45,22 @@ Album: The Hits--Chapter One
 
 ==========================================================================
 
+concert-this primus
+Teatro Diana
+Guadalajara,  Mexico
+01/18/2019
+
+Auditorio BlackBerry
+Mexico,  Mexico
+01/19/2019
+
+Teatro Coliseo
+Teatro Coliseo,  Chile
+01/24/2019
+
+Teatro Coliseo
+Teatro Coliseo,  Chile
+01/25/2019
+
+==========================================================================
+
