@@ -140,7 +140,7 @@ function doWhatItSays(fileName) {
             const command = dataArr[0];
             const query = dataArr[1];
             if(command !== "do-what-it-says") { // We don't ever want to run this command because it will loop forever
-                fs.appendFile("log.txt", "do-what-it-says\n", error => {
+                fs.appendFile("log.txt", "do-what-it-says " + fileName + "\n", error => {
                     if(error) throw error;
                 });
                 commands[command].run(query);
@@ -172,5 +172,5 @@ function printUsage() {
     console.log("node liri.js concert-this <artist/band name here>");
     console.log("node liri.js spotify-this-song <song name here>");
     console.log("node liri.js movie-this <movie name here>");
-    console.log("node liri.js do-what-it-says");
+    console.log("node liri.js do-what-it-says <filename>");
 }

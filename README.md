@@ -31,6 +31,8 @@ Uses [Axios](https://www.npmjs.com/package/axios) to get concert data from the [
 
 This function also uses [Moment.js](https://www.npmjs.com/package/moment) in order to format the event dates to MM//DD/YYYY.
 
+If no band is provided it will display results for Red Hot Chili Peppers.
+
 ### spotify-this-song
 `node liri.js spotify-this-song <song name>`
 
@@ -43,7 +45,7 @@ Uses the [node-spotify-api](https://www.npmjs.com/package/node-spotify-api) to g
 * A preview link of the song from Spotify
 * The album that the song is from
 
-If no song data is found for the query, it attempts to display a default song.
+If no song name is provided it will display the results for "The Sign" by Ace of Base.
 
 ### movie-this
 `node liri.js movie-this <movie name>`
@@ -61,14 +63,14 @@ Uses [Axios](https://www.npmjs.com/package/axios) to get movie data from the [OM
 * Plot of the movie.
 * Actors in the movie.
 
-If no song data is found for the query, it attempts to display a default movie.
+If no movie name is provided it will display the results for "Mr. Nobody".
 
 ### do-what-it-says
-`node liri.js do-what-it-says`
+`node liri.js do-what-it-says <filename>`
 
 ![do-what-it-says](assets/images/do-what-it-says.gif)
 
-Uses Node's [fs](https://nodejs.org/api/fs.html) package to read a file with one command structured like `spotify-this-song,"I Want it That Way"`, then runs the command as if it were passed via the terminal.
+Uses Node's [fs](https://nodejs.org/api/fs.html) package to read a file with one command structured like `spotify-this-song,"I Want it That Way"`, then runs the command as if it were passed via the terminal. It accepts a filename as a parameter but will default to random.txt if none is provided.
 
 ## log.txt
 The bonus part of the assignment was to not only log output to the terminal display, but to use [fs](https://nodejs.org/api/fs.html) to append the output to a log file. This is accomplished by `logToFile()`,

@@ -1,9 +1,12 @@
-do-what-it-says
-spotify-this-song I Want It That Way
-Artist: Backstreet Boys
-Song Name: I Want It That Way
-Link: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6
-Album: The Hits--Chapter One
+do-what-it-says movie.txt
+movie-this "what about bob"
+Title: What About Bob?
+Released: 1991
+IMDB rating: 7.0
+Rotten Tomatoes Rating: 83%
+Language: English
+Plot: A successful psychotherapist loses his mind after one of his most dependent patients, an obsessive-compulsive neurotic, tracks him down during his family vacation.
+Actors: Bill Murray, Richard Dreyfuss, Julie Hagerty, Charlie Korsmo
 
 ==========================================================================
 
@@ -15,14 +18,14 @@ Album: Stay Hungry
 
 ==========================================================================
 
-movie-this forrest gump
-Title: Forrest Gump
-Released: 1994
-IMDB rating: 8.8
-Rotten Tomatoes Rating: 73%
-Language: English
-Plot: The presidencies of Kennedy and Johnson, Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.
-Actors: Tom Hanks, Rebecca Williams, Sally Field, Michael Conner Humphreys
+movie-this groundhog day
+Title: Groundhog Day
+Released: 1993
+IMDB rating: 8.0
+Rotten Tomatoes Rating: 96%
+Language: English, French, Italian
+Plot: A weatherman finds himself inexplicably living the same day over and over again.
+Actors: Bill Murray, Andie MacDowell, Chris Elliott, Stephen Tobolowsky
 
 ==========================================================================
 
@@ -42,188 +45,6 @@ Teatro Coliseo,  Chile
 Teatro Coliseo
 Teatro Coliseo,  Chile
 01/25/2019
-
-==========================================================================
-
-do-what-it-says
-spotify-this-song I Want It That Way
-Artist: Backstreet Boys
-Song Name: I Want It That Way
-Link: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6
-Album: The Hits--Chapter One
-
-==========================================================================
-
-do-what-it-says
-spotify-this-song I Want It That Way
-Artist: Backstreet Boys
-Song Name: I Want It That Way
-Link: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6
-Album: The Hits--Chapter One
-
-==========================================================================
-
-do-what-it-says
-concert-this metallica
-The Forum
-Los Angeles, CA United States
-01/16/2019
-
-BOK Center
-Tulsa, OK United States
-01/18/2019
-
-Verizon Arena
-North Little Rock, AR United States
-01/20/2019
-
-Legacy Arena at The BJCC
-Birmingham, AL United States
-01/22/2019
-
-Bridgestone Arena
-Nashville, TN United States
-01/24/2019
-
-PNC Arena
-Raleigh, NC United States
-01/28/2019
-
-U.S. Bank Arena
-Cincinnati, OH United States
-01/30/2019
-
-Quicken Loans Arena
-Cleveland, OH United States
-02/01/2019
-
-Don Haskins Center
-El Paso, TX United States
-02/28/2019
-
-United Supermarkets Arena
-Lubbock, TX United States
-03/02/2019
-
-Intrust Bank Arena
-Wichita, KS United States
-03/04/2019
-
-Sprint Center
-Kansas City, MO United States
-03/06/2019
-
-KFC Yum! Center
-Louisville, KY United States
-03/09/2019
-
-Bankers Life Fieldhouse
-Indianapolis, IN United States
-03/11/2019
-
-Van Andel Arena
-Grand Rapids, MI United States
-03/13/2019
-
-Estadio do Restelo
-Lisbon,  Portugal
-05/01/2019
-
-Valdebebas - IFEMA
-Madrid,  Spain
-05/03/2019
-
-Estadi Olímpic Lluís Companys
-Barcelona,  Spain
-05/05/2019
-
-Ippodromo Snai - San Siro
-Milan,  Italy
-05/08/2019
-
-Stadion Letzigrund
-Zürich,  Switzerland
-05/10/2019
-
-Stade de France
-Paris,  France
-05/12/2019
-
-SLANE CASTLE
-Co. Meath,  Ireland
-06/08/2019
-
-Johan Cruijff ArenA
-Amsterdam,  Netherlands
-06/11/2019
-
-RheinEnergieSTADION
-Köln,  Germany
-06/13/2019
-
-Stade Roi Baudouin
-Bruxelles,  Belgium
-06/16/2019
-
-Etihad Stadium
-Manchester,  United Kingdom
-06/18/2019
-
-Twickenham Stadium
-London,  United Kingdom
-06/20/2019
-
-Olympiastadion
-Berlin,  Germany
-07/06/2019
-
-Ullevi Restaurant & Conference
-Göteborg,  Sweden
-07/09/2019
-
-Telia Parken
-Copenhagen,  Denmark
-07/11/2019
-
-Granasen Arena
-Trondheim,  Norway
-07/13/2019
-
-KANTOLAN TAPAHTUMAPUISTO
-Hameenlinna,  Finland
-07/16/2019
-
-Raadi lennuväli, Tartu
-Tartu,  Estonia
-07/18/2019
-
-The Luzhniki Stadium
-Moscow,  Russia
-07/21/2019
-
-NATIONAL ARENA
-Bucuresti,  Romania
-08/14/2019
-
-Ernst-Happel-Stadion
-Wien,  Austria
-08/16/2019
-
-Letiště Praha Letňany
-Praha,  Czech Republic
-08/18/2019
-
-PGE Narodowy
-Warsaw,  Poland
-08/21/2019
-
-Olympiastadion
-Munchen,  Germany
-08/23/2019
-
-Maimarkt Gelände
-Mannheim,  Germany
-08/25/2019
 
 ==========================================================================
 
