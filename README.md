@@ -72,7 +72,9 @@ Uses Node's [fs](https://nodejs.org/api/fs.html) package to read a file with one
 
 ## log.txt
 The bonus part of the assignment was to not only log output to the terminal display, but to use [fs](https://nodejs.org/api/fs.html) to append the output to a log file. This is accomplished by `logToFile()`,
-which appends the command, the search parameter, and the resulting output to log.txt.
+which appends the command, the search parameter, and the resulting output to log.txt. The log file ends up looking like this:
+
+![log](assets/images/log.png)
 
 ## Hiding API keys
 The [dotenv](https://www.npmjs.com/package/dotenv) package allows users to set up environment variables specific to the machine the code is running on. I defined the API keys within the `.env` file. `keys.js` is used to grab the API keys from the environment variables and export them to `liri.js`. I then set up a `.gitignore` which includes `.env`, thus preventing the keys from being pushed to GitHub. Because of this, any users who wish to clone/fork this project will need to create their own `.env` file with their own API keys in order for this application to work.
