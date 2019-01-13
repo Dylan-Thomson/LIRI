@@ -59,7 +59,7 @@ function runCommand(command, query) {
 function logSpotifySongData(query) {
     spotify.search({type: 'track', query: query, limit: 1}).then(response => {
         if(response.tracks.items.length < 1) {
-            console.log("Song not found. Here's a default song.");
+            console.log("I couldn't find the song you were looking for. Here is The Sign by Ace of Base");
             logSpotifySongData("The Sign Ace of Base");
         }
         else {
@@ -86,7 +86,7 @@ function logSpotifySongData(query) {
 function logBandsInTownData(query) {
     axios.get("https://rest.bandsintown.com/artists/" + query + "/events?app_id=" + bandsInTownID).then(response => {
         if(!Array.isArray(response.data) || response.data.length < 1) {
-            console.log("Concerts not found.");
+            console.log("I couldn't find concerts for the band you were looking for.");
         }
         else {
             let output = "";
@@ -109,7 +109,8 @@ function logBandsInTownData(query) {
 function logOMDBData(query) {
     axios.get("http://www.omdbapi.com/?t=" + query + "&plot=short&apikey=" + omdbID).then(response => {
         if(response.data.Response === 'False') {
-            console.log("Movie not found.");
+            console.log("I couldn't find the movie you were looking for. Here is Mr. Nobody");
+            logOMDBData("Mr. Nobody");
         }
         else {
             let output = "Title: " + response.data.Title;
