@@ -14,8 +14,8 @@ const omdbID = keys.omdb.id;
 // Get command to run from arguments
 const command = process.argv[2];
 
-// Get the rest of the elements in process.argv and join them with "+" to build our query for API calls
-const query = process.argv.slice(3).join("+");
+// Get the rest of the elements in process.argv and join them with whitespaces to build our query for API calls
+const query = process.argv.slice(3).join(" ");
 
 // Define Command class
 class Command {
@@ -154,8 +154,8 @@ function doWhatItSays(fileName) {
 
 // Append command and its result to log.txt
 function logToFile(command, searchTerm, result) {
-    // Build presentable output to append by adding the command, searchTerm with + replaced by spaces, the result, and a divider
-    const output = command + " " + searchTerm.replace(/\+/g, " ") + "\n" + result + "\n\n" + new Array(75).join("=") + "\n\n";
+    // Build presentable output to append by adding the command, searchTerm, the result, and a divider
+    const output = command + " " + searchTerm + "\n" + result + "\n\n" + new Array(75).join("=") + "\n\n";
     try {
         fs.appendFile("log.txt", output, error => {
             if(error) throw error;
