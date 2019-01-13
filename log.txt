@@ -1,41 +1,3 @@
-spotify-this-song We're Not Gonna Take It
-Artist: Twisted Sister
-Song Name: We're Not Gonna Take It
-Link: https://open.spotify.com/track/1hlveB9M6ijHZRbzZ2teyh
-Album: Stay Hungry
-
-==========================================================================
-
-movie-this groundhog day
-Title: Groundhog Day
-Released: 1993
-IMDB rating: 8.0
-Rotten Tomatoes Rating: 96%
-Language: English, French, Italian
-Plot: A weatherman finds himself inexplicably living the same day over and over again.
-Actors: Bill Murray, Andie MacDowell, Chris Elliott, Stephen Tobolowsky
-
-==========================================================================
-
-concert-this primus
-Teatro Diana
-Guadalajara,  Mexico
-01/18/2019
-
-Auditorio BlackBerry
-Mexico,  Mexico
-01/19/2019
-
-Teatro Coliseo
-Teatro Coliseo,  Chile
-01/24/2019
-
-Teatro Coliseo
-Teatro Coliseo,  Chile
-01/25/2019
-
-==========================================================================
-
 do-what-it-says
 spotify-this-song I Want It That Way
 Artist: Backstreet Boys
@@ -45,6 +7,25 @@ Album: The Hits--Chapter One
 
 ==========================================================================
 
+spotify-this-song We're Not Gonna Take It
+Artist: Twisted Sister
+Song Name: We're Not Gonna Take It
+Link: https://open.spotify.com/track/1hlveB9M6ijHZRbzZ2teyh
+Album: Stay Hungry
+
+==========================================================================
+
+movie-this forrest gump
+Title: Forrest Gump
+Released: 1994
+IMDB rating: 8.8
+Rotten Tomatoes Rating: 73%
+Language: English
+Plot: The presidencies of Kennedy and Johnson, Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.
+Actors: Tom Hanks, Rebecca Williams, Sally Field, Michael Conner Humphreys
+
+==========================================================================
+
 concert-this primus
 Teatro Diana
 Guadalajara,  Mexico
@@ -61,82 +42,6 @@ Teatro Coliseo,  Chile
 Teatro Coliseo
 Teatro Coliseo,  Chile
 01/25/2019
-
-==========================================================================
-
-movie-this Mr. Nobody
-Title: Mr. Nobody
-Released: 2009
-IMDB rating: 7.9
-Rotten Tomatoes Rating: 67%
-Language: English, Mohawk
-Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
-Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
-
-==========================================================================
-
-concert-this primus
-Teatro Diana
-Guadalajara,  Mexico
-01/18/2019
-
-Auditorio BlackBerry
-Mexico,  Mexico
-01/19/2019
-
-Teatro Coliseo
-Teatro Coliseo,  Chile
-01/24/2019
-
-Teatro Coliseo
-Teatro Coliseo,  Chile
-01/25/2019
-
-==========================================================================
-
-spotify-this-song We're Not Gonna Take It
-Artist: Twisted Sister
-Song Name: We're Not Gonna Take It
-Link: https://open.spotify.com/track/1hlveB9M6ijHZRbzZ2teyh
-Album: Stay Hungry
-
-==========================================================================
-
-spotify-this-song We're Not Gonna Take It
-Artist: Twisted Sister
-Song Name: We're Not Gonna Take It
-Link: https://open.spotify.com/track/1hlveB9M6ijHZRbzZ2teyh
-Album: Stay Hungry
-
-==========================================================================
-
-movie-this the shawshank+redemption
-Title: The Shawshank Redemption
-Released: 1994
-IMDB rating: 9.3
-Rotten Tomatoes Rating: 91%
-Language: English
-Plot: Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.
-Actors: Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler
-
-==========================================================================
-
-movie-this the shawshank+redemption
-Title: The Shawshank Redemption
-Released: 1994
-IMDB rating: 9.3
-Rotten Tomatoes Rating: 91%
-Language: English
-Plot: Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.
-Actors: Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler
-
-==========================================================================
-
-spotify-this-song We're Not Gonna Take It
-Artist: Twisted Sister
-Song Name: We're Not Gonna Take It
-Link: https://open.spotify.com/track/1hlveB9M6ijHZRbzZ2teyh
-Album: Stay Hungry
 
 ==========================================================================
 
